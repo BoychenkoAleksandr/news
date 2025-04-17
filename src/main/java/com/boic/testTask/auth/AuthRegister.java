@@ -3,7 +3,7 @@ package com.boic.testTask.auth;
 import lombok.Data;
 
 @Data
-public class AuthDtoIn {
+public class AuthRegister {
     private String username;
     private String name;
     private String surname;

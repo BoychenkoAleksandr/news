@@ -1,4 +1,4 @@
-package com.boic.test_task.news;
+package com.boic.testTask.news;
 
 import lombok.Data;
 

@@ -1,2 +1,7 @@
-package com.boic.testTask.exception;public class LoginException {
+package com.boic.testTask.exception;
+
+public class LoginException extends RuntimeException {
+    public LoginException(String message) {
+        super(message);
+    }
 }

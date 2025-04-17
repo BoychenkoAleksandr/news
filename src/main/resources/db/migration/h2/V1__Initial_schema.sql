@@ -1,7 +1,7 @@
 CREATE SEQUENCE IF NOT EXISTS public.users_seq START WITH 1;
+
 CREATE TABLE IF NOT EXISTS public.users (
-                                            id                  BIGINT DEFAULT nextval('public.users_seq')
-    CONSTRAINT users_pkey PRIMARY KEY,
+    id                  BIGINT DEFAULT nextval('public.users_seq') PRIMARY KEY,
     username            VARCHAR(40)     NOT NULL,
     password            VARCHAR(80)     NOT NULL,
     name                VARCHAR(20)     NOT NULL,
@@ -14,8 +14,7 @@ CREATE TABLE IF NOT EXISTS public.users (
 
 CREATE SEQUENCE IF NOT EXISTS public.news_seq START WITH 1;
 CREATE TABLE IF NOT EXISTS public.news (
-                                           id                  BIGINT DEFAULT nextval('public.news_seq')
-    CONSTRAINT news_pkey PRIMARY KEY,
+    id                  BIGINT DEFAULT nextval('public.news_seq') PRIMARY KEY,
     title               VARCHAR(150)    NOT NULL,
     text                VARCHAR(2000)   NOT NULL,
     creation_date       TIMESTAMP       NOT NULL,
@@ -28,8 +27,7 @@ CREATE TABLE IF NOT EXISTS public.news (
 
 CREATE SEQUENCE IF NOT EXISTS public.comments_seq START WITH 1;
 CREATE TABLE IF NOT EXISTS public.comments (
-                                               id                  BIGINT DEFAULT nextval('public.comments_seq')
-    CONSTRAINT comments_pkey PRIMARY KEY,
+    id                  BIGINT DEFAULT nextval('public.comments_seq') PRIMARY KEY,
     text                VARCHAR(300)    NOT NULL,
     creation_date       TIMESTAMP       NOT NULL,
     last_edit_date      TIMESTAMP       NOT NULL,

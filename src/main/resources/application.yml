@@ -1,1 +1,72 @@
-spring.application.name=test_task
+# Конфигурация для тестового профиля (встроенная H2)
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:file:~/test/testdb;AUTO_SERVER=TRUE;IFEXISTS=FALSE
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: "your-256-bit-secret-key-here-1234567890" # Минимум 32 символа
+  expiration: 86400                                 # Время жизни токена (в секундах)
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.hibernate: WARN
+    com.boic.testTask: DEBUG
+    org.flywaydb.core.internal.command.DbMigrate: DEBUG
+    org.flywaydb.core.internal.sqlscript.SqlScript: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Конфигурация для продакшена (PostgreSQL)
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test_task
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+jwt:
+  secret: "your-256-bit-secret-key-here-1234567890" # Минимум 32 символа
+  expiration: 86400                                 # Время жизни токена (в секундах)
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.hibernate: WARN
+    com.boic.testTask: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

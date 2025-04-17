@@ -1,11 +1,9 @@
-package com.boic.test_task.news;
+package com.boic.testTask.news;
 
 import lombok.Data;
 
 @Data
 public class NewsDtoIn {
-    private Long id;
-
     private String title;
 
     private String text;

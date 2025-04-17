@@ -1,15 +1,18 @@
 package com.boic.testTask.news;
 
 
-import com.boic.testTask.common.DateMapper;
 import com.boic.testTask.common.JpaMapper;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, uses = DateMapper.class)
-public interface NewsMapper extends JpaMapper<NewsDtoOut, NewsJpa> {
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+public interface NewsJpaMapper extends JpaMapper<News, NewsJpa> {
     @Mapping(target = "title", source = "title")
-    @Mapping(target = "text", source = "text")
-    NewsDtoOut fromJpaEntity(NewsJpa jpaEntity);
+    News fromJpaEntity(NewsJpa jpaEntity);
+
+    @Mapping(target = "title", source = "title")
+    @Mapping(target = "comments", ignore = true)
+    NewsJpa toJpaEntity(News entity);
 }

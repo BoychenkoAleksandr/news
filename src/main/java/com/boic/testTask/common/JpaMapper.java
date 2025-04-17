@@ -1,4 +1,4 @@
-package com.boic.test_task.common;
+package com.boic.testTask.common;
 
 import org.mapstruct.MappingTarget;
 import org.springframework.data.domain.Page;
