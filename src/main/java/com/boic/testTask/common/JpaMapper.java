@@ -1,6 +1,5 @@
 package com.boic.testTask.common;
 
-import org.mapstruct.MappingTarget;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -16,8 +15,6 @@ public interface JpaMapper<T, J> {
     default J toJpaEntity(T entity) {
         return null;
     }
-
-    default void merge(T entity, @MappingTarget J jpaEntity) {}
 
     default List<J> toJpaEntity(List<T> entity) {
         return entity.stream().map(this::toJpaEntity).collect(Collectors.toList());

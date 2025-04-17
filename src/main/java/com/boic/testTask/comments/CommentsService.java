@@ -8,17 +8,11 @@ import com.boic.testTask.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.nio.file.AccessDeniedException;
-import java.util.List;
 
 /**
  * Сервис для работы с комментариями.
@@ -63,7 +57,6 @@ public class CommentsService implements CrudService<Comments, CommentsJpa> {
      * @param userId ID текущего пользователя
      * @param role роль текущего пользователя
      * @return обновленный комментарий
-     * @throws AccessDeniedException если пользователь не автор и не администратор
      * @implNote Логирование:
      * <ul>
      *   <li>ERROR: при попытке редактирования без прав</li>
@@ -95,7 +88,6 @@ public class CommentsService implements CrudService<Comments, CommentsJpa> {
      * @param id ID комментария
      * @param userId ID текущего пользователя
      * @param role роль текущего пользователя
-     * @throws AccessDeniedException если пользователь не автор и не администратор
      * @throws RuntimeException если комментарий не найден
      * @implNote Логирование:
      * <ul>

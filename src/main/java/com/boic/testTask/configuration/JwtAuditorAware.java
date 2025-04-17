@@ -1,7 +1,5 @@
 package com.boic.testTask.configuration;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,12 +23,6 @@ public class JwtAuditorAware implements AuditorAware<Long> {
             // Если principal - это CustomUserDetails
             if (principal instanceof CustomUserDetails) {
                 return Optional.of(((CustomUserDetails) principal).getId());
-            }
-
-            // Если principal - строка (username), можно попробовать найти ID
-            if (principal instanceof String) {
-                // Здесь должна быть логика поиска пользователя по username
-                // return userRepository.findByUsername((String) principal).map(User::getId);
             }
         }
 

@@ -1,6 +1,5 @@
 package com.boic.testTask.news;
 
-import com.boic.testTask.comments.Comments;
 import com.boic.testTask.common.CrudService;
 import com.boic.testTask.common.JpaMapper;
 import com.boic.testTask.common.Role;
@@ -8,19 +7,12 @@ import com.boic.testTask.exception.AuthorException;
 import com.boic.testTask.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.nio.file.AccessDeniedException;
-import java.util.List;
 
 /**
  * Сервис для работы с новостями.

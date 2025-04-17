@@ -5,7 +5,6 @@ import com.boic.testTask.common.JpaMapper;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface NewsJpaMapper extends JpaMapper<News, NewsJpa> {
